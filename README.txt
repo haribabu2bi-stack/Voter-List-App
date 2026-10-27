@@ -1,17 +1,14 @@
-# ఓటర్ల జాబితా ఆఫ్‌లైన్ వెబ్ అప్లికేషన్ (Voter List Ward 19)
+Voter List Manager — updated with the latest uploaded Excel file.
 
-తాజా ఎక్సెల్ షీట్ (`voter_list_ward19 27.10.26.xlsx` - 1326 ఓటర్ల వివరాలు) ఆధారంగా తయారు చేయబడిన వెబ్ అప్లికేషన్.
+Data included: 1326 voter records.
 
-## ఫీచర్లు (Features):
-1. **మొత్తం ఓటర్లు**: 1,326 మంది వివరాలు నిక్షిప్తమై ఉన్నాయి.
-2. **లైవ్ సెర్చ్ & ఫిల్టర్లు**: 
-   - పేరు, ఇంటిపేరు, ఓటర్ ఐడీ, తండ్రి/భర్త పేరు, మొబైల్ నంబరుతో వెంటనే వెతకవచ్చు.
-   - కులం (Caste) మరియు లింగం (Male/Female) ఆధారంగా ఫిల్టర్ చేయవచ్చు.
-3. **ఫోన్ కాలింగ్**: ఒకే క్లిక్‌తో డైరెక్ట్‌గా కాల్ చేయడానికి 'Call' బటన్.
-4. **కొత్త ఓటరు చేరిక & సవరణ**: నేరుగా బ్రౌజర్‌లోనే కొత్త వివరాలు నమోదు చేయవచ్చు లేదా పాతవి సవరించవచ్చు (Local Storage లో సేవ్ అవుతాయి).
-5. **Excel ఎగుమతి (Export)**: మొత్తం లేదా ఎడిట్ చేసిన డేటాను ఒక్క క్లిక్‌తో Excel (.xlsx) రూపంలో డౌన్‌లోడ్ చేసుకోవచ్చు.
-6. **బ్యాకప్ & రీస్టోర్ (Backup & Restore)**: మీ డేటాను సురక్షితంగా JSON బ్యాకప్‌గా దాచుకోవచ్చు మరియు ఎప్పుడు కావాలంటే అప్పుడు అప్‌లోడ్ చేసి రీస్టోర్ చేసుకోవచ్చు.
+How to use on Android:
+1. Extract voter_list_mobile_app_updated.zip using your phone's Files app.
+2. Open index.html in Chrome (or another browser).
+3. Search voters, add new records, edit records, or delete records.
+4. Use Backup Save regularly. Backup Restore loads a previously saved JSON backup.
+5. Excel/CSV Export downloads a CSV file that can be opened in Excel.
 
-## ఉపయోగించే విధానం:
-1. `index.html` ఫైల్‌ను మీ మొబైల్ లేదా కంప్యూటర్ బ్రౌజర్‌ (Chrome, Edge, Safari మొదలైనవి) లో ఓపెన్ చేయండి.
-2. ఇంటర్నెట్ లేకపోయినా ఇది పూర్తిగా ఆఫ్‌లైన్‌లో పనిచేస్తుంది.
+Latest Excel fields preserved: S.No, MOBILE, SECOND, పేరు, తండ్రి / భర్త, Gender, Age, Voter ID, INTIAL, CASTE, Death, Other Details, Additional Notes.
+
+Privacy: This app contains personal voter information. Do not publish or share a public link unless you are authorized and accept that anyone with the link may view these details.
