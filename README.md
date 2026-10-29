@@ -1,16 +1,53 @@
-# Ward 19 Voter List Manager (వార్డ్ 19 ఓటర్ల మేనేజ్‌మెంట్)
+# Voter Payment Status Web App
 
-ఈ వెబ్ అప్లికేషన్ ద్వారా వార్డ్ 19 ఓటర్ల జాబితాను సులభంగా వెతకవచ్చు మరియు మేనేజ్ చేయవచ్చు.
+A voter-list management interface for viewing voter details and updating payment and vote-cast status.
 
-## ఫీచర్లు (Features)
-- 🔍 **ఓటర్ ID & పేరు వెతుకులాట (Voter ID & Name Search):** నేరుగా ఓటర్ ఐడీ లేదా పేరు ద్వారా వెతకవచ్చు.
-- 🏠 **ఇంటిపేరు ఫిల్టర్ (Intiperu Filter):** ఇంటిపేరు ద్వారా ఓటర్ల వివరాలను వేరు చేయవచ్చు.
-- 🏷️ **కులం ఫిల్టర్ (Caste Filter):** కులం ఆధారంగా సెర్చ్ చేయవచ్చు.
-- 👫 **లింగం ఫిల్టర్ (Gender Filter):** పురుషులు లేదా స్త్రీలను మాత్రమే చూడవచ్చు.
-- ⚰️ **స్టేటస్ ఫిల్టర్ (Status Filter):** జీవించి ఉన్నవారు (ACTIVE) లేదా మరణించిన వారి (DEATH) జాబితాను చూడవచ్చు.
-- 📊 **లైవ్ గణాంకాలు (Live Statistics):** మొత్తం ఓటర్లు, పురుషులు, స్త్రీలు, మరణించిన వారి వివరాలను ప్రత్యక్షంగా చూపుతుంది.
-- 📥 **CSV/Excel ఎగుమతి (Export):** ఫిల్టర్ చేసిన వివరాలను ఒకే క్లిక్‌తో Excel/CSV రూపంలో డౌన్‌లోడ్ చేసుకోవచ్చు.
+## Features
 
-## ఉపయోగించడం ఎలా? (How to Use)
-1. `Ward19_Voter_List_App.zip` ఫైల్‌ను Extract/Unzip చేయండి.
-2. అందులోని `index.html` ఫైల్‌పై డబుల్ క్లిక్ చేసి Chrome, Edge లేదా ఏైనా వెబ్ బ్రౌజర్‌లో ఓపెన్ చేయండి.
+- Search by S.No, name, mobile number, initial, or caste.
+- Edit mobile number and caste.
+- Update Payment Status (`Pending` / `Paid`).
+- Update Vote Cast (`Not Done` / `Done`).
+- Record the person who collected/recorded the payment in `PAID BY`.
+- Export the full list or the currently filtered list as CSV or Excel-compatible `.xls`.
+
+## Important: Hosting
+
+This `index.html` is designed to run as the HTML front end of a **Google Apps Script web app**. It uses `google.script.run` to call server-side Apps Script functions such as `getVoters()` and `updatePayment()`.
+
+It will **not work as a standalone GitHub Pages site** without replacing the Apps Script calls with a backend/API. GitHub can be used to store and version-control the source files, while Google Apps Script serves the working web app.
+
+## Files
+
+- `index.html` — front-end UI.
+- `Code.gs` — server-side Google Apps Script code (keep this in the Apps Script project, or add it to the repository for source control).
+
+## Setup in Google Apps Script
+
+1. Open the Google Sheet containing the voter list.
+2. Open **Extensions → Apps Script**.
+3. Add or replace the HTML file named `Index` with the contents of `index.html`.
+4. Add the matching server-side functions from `Code.gs` to the Apps Script project.
+5. Confirm the sheet headers match these names (case-insensitive):
+   - `S.No`
+   - `MOBILE`
+   - `పేరు`
+   - `తండ్రి / భర్త`
+   - `INTIAL`
+   - `CASTE`
+   - `PAYMENT STATUS`
+   - `PAID BY`
+6. The script adds a `VOTE CAST` column if it is missing.
+7. Save, then choose **Deploy → Manage deployments → Edit → New version → Deploy**.
+8. Restrict access to people who are authorized to view and edit voter data.
+
+## Export notes
+
+- CSV exports are UTF-8 with a BOM to help Excel display Telugu text correctly.
+- The Excel option creates an Excel-compatible `.xls` file, not a native `.xlsx` workbook.
+- Exporting the filtered list exports the records matching the current search field and search value.
+- Save edits before exporting to ensure the latest changes are included.
+
+## Privacy
+
+The sheet may contain personal information. Do not publish the sheet or its data in a public GitHub repository. Keep the repository private if it contains internal source code or configuration, and restrict the web app to authorized users.
