@@ -1,33 +1,25 @@
-# JMK Voter List
+# JMK Voter List – Party Editing
 
-A static voter-list website built from `JMK_Voter_List(1).xlsx`.
+Files:
+- `index.html` – website with Party-only editing in Grid and List views.
+- `voter-data.js` – original 1,290 voter records.
+- `JMK_Party_AppScript.gs` – Google Sheets backend for shared Party values.
 
-## Files
-- `index.html` — website interface (Grid View and List View).
-- `voter-data.js` — voter records embedded as local JavaScript data.
+## One-time Google Sheets setup
+1. Create a new Google Sheet named `JMK Party Database`.
+2. In that Sheet, open **Extensions → Apps Script**.
+3. Replace the editor contents with the full contents of `JMK_Party_AppScript.gs`.
+4. Save. From the function dropdown, select `setupPartySheet` and click Run. Approve the requested permissions. This creates a `PartyData` tab with S.No and Party columns for all 1,290 records.
+5. Click **Deploy → New deployment**. Select type **Web app**.
+6. Set **Execute as: Me** and **Who has access: Anyone** (or the broadest access allowed by your organization). Click Deploy and authorize.
+7. Copy the Web app URL (ends in `/exec`).
+8. Open `index.html` in this repository, click Edit (pencil), replace `PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE` with the URL, and Commit changes.
 
-## Features
-- Search by S.No.
-- Search by voter Name.
-- Filter by Party, Gender, and Ward.
-- Switch between Grid View and List View.
-- Displays all source columns: S.No, Party, Name, Tandri Peru, Age, Gender, Door No, Voter ID, Ward.
-- No server or database required; the website works as a static site.
+## GitHub Pages
+Keep `index.html`, `voter-data.js`, and `README.md` in the repository root. In **Settings → Pages**, select **Deploy from a branch**, branch `main`, folder `/(root)`, then Save.
 
-## Run locally
-Keep `index.html` and `voter-data.js` in the same folder, then open `index.html` in a browser.
-
-## Publish with GitHub Pages
-1. Create or open your GitHub repository.
-2. Upload `index.html`, `voter-data.js`, and this `README.md` to the repository root.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select branch **main** and folder **/(root)**, then click **Save**.
-6. Wait for GitHub Pages to publish and open the generated website link.
-
-## Source data
-- Worksheet: `Voter Details`
-- Records: 1290
-- Columns: 9
-
-This is a static viewer. It does not edit or save changes back to the Excel file.
+## Using the app
+- Edit only the Party field and click Save.
+- Party values are stored in the Google Sheet by S.No; other voter fields are not changed.
+- Refreshing the website reloads the shared Party values. Users need internet access.
+- Anyone who can access the web app can update Party values. Share the website only with intended users; the underlying voter data is already public in the static site.
