@@ -58,7 +58,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
 const headers=window.VOTER_DATA.headers, records=window.VOTER_DATA.records;
 const $=id=>document.getElementById(id);
 const value=(r,k)=>String(r[k]??"");
-const API_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const API_URL = "https://script.google.com/macros/s/AKfycbwS01V5XK0HlRzll_yDJE1LDFr-BsGtcoALuv-kcq5pNygyjX9SgwUTX_vqnHFEjgRO/exec";
 let sharedParties = {};
 function apiReady(){ return API_URL.startsWith("https://script.google.com/") && !API_URL.includes("PASTE_"); }
 function loadSharedParties(){
